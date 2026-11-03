@@ -280,9 +280,11 @@ The Value Iteration algorithm was implemented successfully using the Gymnasium F
 
 ## Inference
 ```text
-The Value Iteration algorithm successfully determined the optimal state-value function and optimal policy for the FrozenLake environment. By repeatedly applying the Bellman Optimality Equation, the algorithm calculated the maximum expected future reward for each state.
-
-The agent learns the best possible actions to reach the goal state while avoiding holes. Since the environment is slippery, the agent considers transition probabilities when selecting actions. Thus, Value Iteration provides an effective method for finding an optimal policy in a finite Markov Decision Process.
+* The Value Iteration algorithm successfully determined the optimal state-value function and optimal policy for the FrozenLake environment.
+* By repeatedly applying the Bellman Optimality Equation, the algorithm calculated the maximum expected future reward for each state.
+* The agent learns the best possible actions to reach the goal state while avoiding holes.
+* Since the environment is slippery, the agent considers transition probabilities when selecting actions.
+* Thus, Value Iteration provides an effective method for finding an optimal policy in a finite Markov Decision Process.
 
 ```
 ---

@@ -167,6 +167,7 @@ def value_iteration(env, gamma=0.99, theta=1e-8):
     n_actions = env.action_space.n
 
     V = np.zeros(n_states)
+    policy = np.zeros(n_states, dtype=int)
 
     iteration = 0
 
@@ -188,6 +189,8 @@ def value_iteration(env, gamma=0.99, theta=1e-8):
 
             best_value = np.max(action_values)
 
+            policy[s] = np.argmax(action_values)
+
             delta = max(delta, abs(best_value - V[s]))
 
             V[s] = best_value
@@ -196,22 +199,6 @@ def value_iteration(env, gamma=0.99, theta=1e-8):
 
         if delta < theta:
             break
-
-    policy = np.zeros(n_states, dtype=int)
-
-    for s in range(n_states):
-
-        action_values = np.zeros(n_actions)
-
-        for a in range(n_actions):
-
-            for prob, next_state, reward, terminated in env.unwrapped.P[s][a]:
-
-                action_values[a] += prob * (
-                    reward + gamma * V[next_state]
-                )
-
-        policy[s] = np.argmax(action_values)
 
     return V, policy, iteration
 
@@ -250,6 +237,9 @@ print("\nOptimal Policy:")
 print(policy_grid)
 
 env.close()
+
+
+
 
 
 ```
